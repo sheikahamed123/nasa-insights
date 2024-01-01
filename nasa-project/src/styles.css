@@ -1,0 +1,111 @@
+/* App.css */
+
+body {
+  background-color: #283655; /* Dark Blue-Grey */
+  color: #edf6f9; /* Light Blue-Grey */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  padding: 20px;
+}
+
+.navbar {
+  background-color: #12232e; /* Dark Cyan */
+  padding: 10px;
+  border-bottom: 2px solid #0d1b23; /* Slightly Darker Cyan */
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.nav-item {
+  cursor: pointer;
+  padding: 10px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #edf6f9; /* Light Blue-Grey */
+}
+
+.nav-item:hover {
+  background-color: #0d1b23; /* Dark Cyan on hover */
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.apod-image {
+  width: 500px; /* Specify the desired width */
+  max-height: 400px;
+  object-fit: cover;
+  margin: 20px auto; /* Center the image horizontally */
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  height: 500px;
+  position:relative;
+  left:450px;
+}
+
+.neo-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.neo-date {
+  margin: 20px;
+}
+
+.neo-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.neo-item h4 {
+  margin-top: 0;
+}
+/* Add these styles to styles.css or create a new stylesheet */
+
+.home-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.home-title {
+  font-size: 2em;
+  color: #edf6f9; /* Light Blue-Grey */
+  margin-bottom: 10px;
+}
+
+.home-subtitle {
+  font-size: 1.5em;
+  color: #edf6f9; /* Light Blue-Grey */
+  margin-bottom: 20px;
+}
+
+.home-text {
+  font-size: 1.2em;
+  color: #edf6f9; /* Light Blue-Grey */
+  margin-bottom: 10px;
+}
+
+.home-image {
+  margin-top: 20px;
+}
