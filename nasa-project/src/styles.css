@@ -109,3 +109,114 @@ body {
 .home-image {
   margin-top: 20px;
 }
+/* App.css */
+
+/* Existing styles remain unchanged */
+
+/* Media Queries for Responsive Design */
+
+/* Small devices (portrait phones, 576px and up) */
+@media (min-width: 576px) {
+  .app-container {
+    padding: 10px;
+  }
+
+  .nav-list {
+    gap: 10px;
+  }
+
+  .nav-item {
+    padding: 8px;
+    margin-left: 8px;
+  }
+
+  .content {
+    margin-top: 10px;
+  }
+
+  .apod-image {
+    width: 100%; /* Adjusted to full width */
+    max-height: 300px; /* Adjusted max height */
+    height: auto; /* Ensures aspect ratio is maintained */
+    margin: 10px auto; /* Center the image horizontally */
+    left: 0; /* Reset left position */
+  }
+
+  .neo-item {
+    margin: 5px 0;
+    padding: 8px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 768px) {
+  .app-container {
+    padding: 15px;
+  }
+
+  .neo-container {
+    justify-content: space-between;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 992px) {
+  .app-container {
+    padding: 20px;
+  }
+
+  .neo-container {
+    justify-content: space-around;
+  }
+
+  .apod-image {
+    width: 500px; /* Reset to your desired width */
+    max-height: 400px;
+  }
+}
+@media (min-width: 576px) {
+  .neo-container {
+    flex-direction: column; /* Display items in a column for small screens */
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 768px) {
+  .neo-container {
+    flex-direction: row; /* Display items in a row for medium screens */
+  }
+}
+.neo-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.neo-item {
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  width: 100%; /* Make each item take full width initially */
+  max-width: 400px; /* Set a maximum width for each item */
+  margin: 10px; /* Add some margin to each item */
+  padding: 10px; /* Add padding to each item */
+}
+
+/* Small devices (phones, 576px and up) */
+@media (min-width: 576px) {
+  .neo-item {
+    width: calc(50% - 20px); /* Make each item take 50% width with some margin */
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .neo-item {
+    width: calc(33.33% - 20px); /* Make each item take 33.33% width with some margin */
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .neo-item {
+    width: calc(25% - 20px); /* Make each item take 25% width with some margin */
+  }
+}

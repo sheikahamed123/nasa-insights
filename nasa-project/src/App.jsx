@@ -39,7 +39,7 @@ function App() {
             </li>
             <li>
               <Link to="/neows-feed" style={linkStyle}>
-                NeoWs Feed
+                NeoWs
               </Link>
             </li>
             <li>
