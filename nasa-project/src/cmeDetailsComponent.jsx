@@ -1,9 +1,14 @@
 // CmeDetailsComponent.jsx
 import React from 'react';
 
-function CmeDetailsComponent({ cmeData }) {
+const tableCellStyle = {
+  border: '1px solid #ccc',
+  padding: '8px',
+};
+
+const CmeDetailsComponent = ({ cmeData }) => {
   if (!cmeData) {
-    return <div>No CME data available</div>;
+    return <div style={{ color: 'red' }}>No CME data available</div>;
   }
 
   const {
@@ -18,52 +23,104 @@ function CmeDetailsComponent({ cmeData }) {
   return (
     <div>
       <h2>CME Details</h2>
-      <p><strong>Activity ID:</strong> {activityID}</p>
-      <p><strong>Start Time:</strong> {startTime}</p>
-      <p><strong>Source Location:</strong> {sourceLocation}</p>
-      <p><strong>Note:</strong> {note}</p>
+      <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+        <tbody>
+          <tr>
+            <td style={tableCellStyle}><strong>Activity ID:</strong></td>
+            <td style={tableCellStyle}>{activityID}</td>
+          </tr>
+          <tr>
+            <td style={tableCellStyle}><strong>Start Time:</strong></td>
+            <td style={tableCellStyle}>{startTime}</td>
+          </tr>
+          <tr>
+            <td style={tableCellStyle}><strong>Source Location:</strong></td>
+            <td style={tableCellStyle}>{sourceLocation}</td>
+          </tr>
+          <tr>
+            <td style={tableCellStyle}><strong>Note:</strong></td>
+            <td style={tableCellStyle}>{note}</td>
+          </tr>
+        </tbody>
+      </table>
 
       <h3>Instruments</h3>
-      <ul>
-  {Array.isArray(instruments) && instruments.length > 0 ? (
-    instruments.map((instrument, index) => (
-      <li key={index}>{instrument.displayName}</li>
-    ))
-  ) : (
-    <li>No instrument data available</li>
-  )}
-</ul>
+      <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+        <tbody>
+          {Array.isArray(instruments) && instruments.length > 0 ? (
+            instruments.map((instrument, index) => (
+              <tr key={index}>
+                <td style={tableCellStyle}>{instrument.displayName}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td style={tableCellStyle}>No instrument data available</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
 
       <h3>CME Analyses</h3>
       {cmeAnalyses && Array.isArray(cmeAnalyses) && cmeAnalyses.map((analysis, index) => (
-  <div key={index}>
-    <h4>Analysis {index + 1}</h4>
-    <p><strong>Time (21.5):</strong> {analysis.time21_5 || 'N/A'}</p>
-    <p><strong>Latitude:</strong> {analysis.latitude || 'N/A'}</p>
-    <p><strong>Longitude:</strong> {analysis.longitude || 'N/A'}</p>
-    <p><strong>Half Angle:</strong> {analysis.halfAngle || 'N/A'}</p>
-    <p><strong>Speed:</strong> {analysis.speed || 'N/A'}</p>
-    <p><strong>Type:</strong> {analysis.type || 'N/A'}</p>
-    <p><strong>Is Most Accurate:</strong> {analysis.isMostAccurate ? 'Yes' : 'No'}</p>
-    <p><strong>Note:</strong> {analysis.note || 'N/A'}</p>
-
-    <h5>ENLIL List</h5>
-    {analysis.enlilList && Array.isArray(analysis.enlilList) && (
-      <ul>
-        {analysis.enlilList.map((enlil, enlilIndex) => (
-          <li key={enlilIndex}>
-            <p><strong>Model Completion Time:</strong> {enlil.modelCompletionTime || 'N/A'}</p>
-            <p><strong>AU:</strong> {enlil.au || 'N/A'}</p>
-            {/* Add other details from enlil here */}
-          </li>
-        ))}
-      </ul>
-    )}
-  </div>
-))}
-
+        <div key={index}>
+          <h4>Analysis {index + 1}</h4>
+          <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+            <tbody>
+              <tr>
+                <td style={tableCellStyle}><strong>Time (21.5):</strong></td>
+                <td style={tableCellStyle}>{analysis.time21_5 || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td style={tableCellStyle}><strong>Latitude:</strong></td>
+                <td style={tableCellStyle}>{analysis.latitude || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td style={tableCellStyle}><strong>Longitude:</strong></td>
+                <td style={tableCellStyle}>{analysis.longitude || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td style={tableCellStyle}><strong>Half Angle:</strong></td>
+                <td style={tableCellStyle}>{analysis.halfAngle || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td style={tableCellStyle}><strong>Speed:</strong></td>
+                <td style={tableCellStyle}>{analysis.speed || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td style={tableCellStyle}><strong>Type:</strong></td>
+                <td style={tableCellStyle}>{analysis.type || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td style={tableCellStyle}><strong>Is Most Accurate:</strong></td>
+                <td style={tableCellStyle}>{analysis.isMostAccurate ? 'Yes' : 'No'}</td>
+              </tr>
+              <tr>
+                <td style={tableCellStyle}><strong>Note:</strong></td>
+                <td style={tableCellStyle}>{analysis.note || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td style={tableCellStyle}><strong>ENLIL List</strong></td>
+                <td style={tableCellStyle}>
+                  {analysis.enlilList && Array.isArray(analysis.enlilList) && (
+                    <ul style={{ margin: '0', padding: '0', listStyleType: 'none' }}>
+                      {analysis.enlilList.map((enlil, enlilIndex) => (
+                        <li key={enlilIndex}>
+                          <p><strong>Model Completion Time:</strong> {enlil.modelCompletionTime || 'N/A'}</p>
+                          <p><strong>AU:</strong> {enlil.au || 'N/A'}</p>
+                          {/* Add other details from enlil here */}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      ))}
     </div>
   );
-}
+};
 
 export default CmeDetailsComponent;

@@ -60,6 +60,18 @@ body {
   position:relative;
   left:450px;
 }
+.imagery-image{
+  width: 500px; /* Specify the desired width */
+  max-height: 400px;
+  object-fit: cover;
+  margin: 20px auto; /* Center the image horizontally */
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  height: 500px;
+  position:relative;
+  left:450px;
+}
+
 
 .neo-container {
   display: flex;
@@ -109,6 +121,67 @@ body {
 .home-image {
   margin-top: 20px;
 }
+
+/* styles.css */
+
+/* styles.css */
+
+.container {
+  padding: 20px;
+ 
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.event-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.event-table th,
+.event-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.event-table th {
+
+  font-weight: bold;
+  text-align: left;
+}
+
+
+/* styles.css */
+
+/* styles.css */
+.neo-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.neo-table th,
+.neo-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.neo-table th {
+
+  text-align: left;
+}
+
+.neo-table th,
+.neo-table td {
+  text-align: center;
+}
+
+
+
 /* App.css */
 
 /* Existing styles remain unchanged */

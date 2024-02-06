@@ -26,55 +26,60 @@ function NeoWsFeedComponent() {
     handleNeoFeedClick(today, nextWeekFormatted);
   }, []);
 
-  const renderNeoData = () => {
-    return (
-      <div>
-        <h2>NeoWs (Near Earth Object Web Service) is a RESTful web service for near earth Asteroid information. With NeoWs a user can: search for Asteroids based on their closest approach date to Earth, lookup a specific Asteroid with its NASA JPL small body id, as well as browse the overall data-set.</h2>
-        {neoData?.near_earth_objects && (
-          <div className="neo-container">
-            {Object.entries(neoData.near_earth_objects).map(([date, neoList]) => (
-              <div key={date} className="neo-date">
-                <h3>{date}</h3>
-                {neoList.map((neo) => (
-                  <div key={neo.id} className="neo-item">
-                    <h4>{neo.name}</h4>
-                    <p>
-                      <strong>Estimated Diameter:</strong>{' '}
+  return (
+    <div>
+      <h2>
+        NeoWs (Near Earth Object Web Service) is a RESTful web service for near earth Asteroid
+        information. With NeoWs a user can: search for Asteroids based on their closest approach date
+        to Earth, lookup a specific Asteroid with its NASA JPL small body id, as well as browse the
+        overall data-set.
+      </h2>
+      {neoData?.near_earth_objects && (
+        <div className="neo-container">
+          <table className="neo-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Estimated Diameter (km)</th>
+                <th>Close Approach Date</th>
+                <th>Miss Distance (km)</th>
+                <th>Relative Velocity (km/h)</th>
+                <th>Potentially Hazardous</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(neoData.near_earth_objects).map(([date, neoList]) =>
+                neoList.map((neo) => (
+                  <tr key={neo.id}>
+                    <td>{date}</td>
+                    <td>{neo.name}</td>
+                    <td>
                       {neo.estimated_diameter?.kilometers
-                        ? `${neo.estimated_diameter.kilometers.estimated_diameter_min} - ${neo.estimated_diameter.kilometers.estimated_diameter_max.toFixed(2)} km`
+                        ? `${neo.estimated_diameter.kilometers.estimated_diameter_min.toFixed(2)} - ${neo.estimated_diameter.kilometers.estimated_diameter_max.toFixed(2)}`
                         : 'N/A'}
-                    </p>
-                    <p>
-                      <strong>Close Approach Date:</strong>{' '}
-                      {neo.close_approach_data?.[0]?.close_approach_date_full || 'N/A'}
-                    </p>
-                    <p>
-                      <strong>Miss Distance:</strong>{' '}
+                    </td>
+                    <td>{neo.close_approach_data?.[0]?.close_approach_date_full || 'N/A'}</td>
+                    <td>
                       {neo.close_approach_data?.[0]?.miss_distance?.kilometers !== undefined
                         ? neo.close_approach_data[0].miss_distance.kilometers
-                        : 'N/A'} km
-                    </p>
-                    <p>
-                      <strong>Relative Velocity:</strong>{' '}
+                        : 'N/A'}
+                    </td>
+                    <td>
                       {neo.close_approach_data?.[0]?.relative_velocity?.kilometers_per_hour !== undefined
                         ? neo.close_approach_data[0].relative_velocity.kilometers_per_hour
-                        : 'N/A'} km/h
-                    </p>
-                    <p>
-                      <strong>Potentially Hazardous:</strong>{' '}
-                      {neo.is_potentially_hazardous_asteroid ? 'Yes' : 'No'}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    );
-  };
-
-  return <div>{neoData ? renderNeoData() : <p>Loading NeoWs Feed data...</p>}</div>;
+                        : 'N/A'}
+                    </td>
+                    <td>{neo.is_potentially_hazardous_asteroid ? 'Yes' : 'No'}</td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default NeoWsFeedComponent;
