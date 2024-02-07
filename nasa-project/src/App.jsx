@@ -105,6 +105,7 @@ const Home = () => (
     <p className="home-text"> Space Weather Database Of Notifications, Knowledge, Information-DONKI</p>
     <p className='home-text'> Earth Image From Satellite With Your Own Latitude and Longitude</p>
     <p className="home-text">Earth Observatory Natural Event Tracker - EONET</p>
+    <p className='home-text'>Exo planet Archive using Kepler</p>
   </div>
 );
 
