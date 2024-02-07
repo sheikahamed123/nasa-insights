@@ -180,6 +180,18 @@ body {
   text-align: center;
 }
 
+.planetary-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.planetary-table th, .planetary-table td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+
 
 
 /* App.css */

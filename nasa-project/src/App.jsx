@@ -8,6 +8,8 @@ import ImageryComponent from './ImageryComponent';
 import EonetEvents from './EonetEvents';
 
 import './styles.css';
+import ExoplanetArchiveComponent from './ExoPlanetArchiveComponent';
+
 
 function App() {
   const linkStyle = {
@@ -65,6 +67,12 @@ function App() {
               EONET
               </Link>
             </li>
+            <li>
+              <Link to="/exoplanet" style={linkStyle}>
+              EXO PLANET
+              </Link>
+             
+            </li>
           </ul>
         </nav>
 
@@ -76,6 +84,8 @@ function App() {
             <Route path="/donki" element={<DonkiComponent service="CME" startDate={sevenDaysAgo.toISOString()} endDate={currentDate.toISOString()} />} />
             <Route path="/imagery" element={  <ImageryComponent apiKey={apiKey} />} />
             <Route path="/eonet" element={  <EonetEvents />} />
+            <Route path="/exoplanet" element={  <ExoplanetArchiveComponent />} />
+          
            
           </Routes>
         </div>
