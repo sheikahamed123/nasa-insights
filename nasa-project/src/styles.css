@@ -191,6 +191,27 @@ body {
   text-align: left;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.sol-keys, .validity-checks {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.sol-keys h3, .validity-checks h3 {
+  margin-top: 0;
+}
+
+.mars-image{
+  height:500px;
+  width:1000px;
+}
+
+
 
 
 

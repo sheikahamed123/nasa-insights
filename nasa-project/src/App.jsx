@@ -9,6 +9,7 @@ import EonetEvents from './EonetEvents';
 
 import './styles.css';
 import ExoplanetArchiveComponent from './ExoPlanetArchiveComponent';
+import WeatherComponent from './WeatherComponent';
 
 
 function App() {
@@ -73,6 +74,12 @@ function App() {
               </Link>
              
             </li>
+            <li>
+              <Link to="/weather" style={linkStyle}>
+          MARS WEATHER
+              </Link>
+             
+            </li>
           </ul>
         </nav>
 
@@ -85,6 +92,7 @@ function App() {
             <Route path="/imagery" element={  <ImageryComponent apiKey={apiKey} />} />
             <Route path="/eonet" element={  <EonetEvents />} />
             <Route path="/exoplanet" element={  <ExoplanetArchiveComponent />} />
+            <Route path="/weather" element={ <WeatherComponent apiKey={apiKey} />} />
           
            
           </Routes>
@@ -106,6 +114,7 @@ const Home = () => (
     <p className='home-text'> Earth Image From Satellite With Your Own Latitude and Longitude</p>
     <p className="home-text">Earth Observatory Natural Event Tracker - EONET</p>
     <p className='home-text'>Exo planet Archive using Kepler</p>
+    <p className='home-text'>Mars Weather Information from NASA</p>
   </div>
 );
 
